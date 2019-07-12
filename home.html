@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Level4</title>
+</head>
+<body>
+    <h1>Put text below</h1>
+
+    <form id="form" method="POST" name="form" onsubmit="return anythingElse();">
+
+        <input type="text" name="content" value="">
+
+        <button type="submit" value="submit">Submit</button>
+    </form>
+
+    <div class="output"></div>
+
+
+    
+</body>
+
+<script>
+
+    //bind form submission event to a function (in this case the function will make an ajax request)
+    //intercept that form from performing its default functionality
+    //by default, form posts back
+
+    //now on submit binding,
+
+    
+function anythingElse() {
+    //do something
+    var f = document.querySelector("form");
+    var fd = new FormData(f);
+    //console.log(...fd);
+    //console.log(fd);
+
+    const Http = new XMLHttpRequest();
+    const url='index.php';
+    Http.open("POST", url);
+    Http.setRequestHeader("Content-Type","application/json");
+    var serializedData = JSON.stringify(Object.fromEntries(fd));
+    Http.send();
+
+    Http.onreadystatechange = (e) => {
+    //console.log(Http.responseText)
+    document.querySelector("form").append(Http.responseText);
+    }
+
+    return false;
+}
+
+</script>
+</html>
