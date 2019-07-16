@@ -21,6 +21,12 @@
 <script>
 function sendData(data) {
     var XHR = new XMLHttpRequest();
+    var urlEncodedData = "";
+    var urlEncodedDataPairs = [];
+
+    for(name in data){
+        urlEncodedDataPairs.push(encodedURIComponent(name))//finish
+    }
 }
 </script>
 </html>
