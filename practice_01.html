@@ -24,9 +24,13 @@ function sendData(data) {
     var urlEncodedData = "";
     var urlEncodedDataPairs = [];
 
+    //This turns the data object into an array of URL-encoded key/value pairs
     for(name in data){
         urlEncodedDataPairs.push(encodedURIComponent(name) + '=' + encodeURIComponent(data[name]));
+
     }
+
+    urlEncodedData = urlEncodedDataPairs.join('&').replace(%20/g, '+');
 }
 </script>
 </html>
