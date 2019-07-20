@@ -23,14 +23,15 @@ function sendData(data) {
     var XHR = new XMLHttpRequest();
     var urlEncodedData = "";
     var urlEncodedDataPairs = [];
+    var name;
 
     //This turns the data object into an array of URL-encoded key/value pairs
     for(name in data){
-        urlEncodedDataPairs.push(encodedURIComponent(name) + '=' + encodeURIComponent(data[name]));
+        urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
 
     }
 
-    urlEncodedData = urlEncodedDataPairs.join('&').replace(%20/g, '+');
+    urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
     XHR.addEventListener('load', function(event) {
         alert('It worked! Data was sent');
     })
