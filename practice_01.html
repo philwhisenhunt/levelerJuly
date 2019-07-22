@@ -38,7 +38,9 @@ function sendData(data) {
 
     XHR.addEventListener('error', function(event){
         alert('Oops! Something goe wrong.');
-    })
+    });
+
+    XHR.open('POST', 'https://example.com/cors.php');
 }
 </script>
 </html>
