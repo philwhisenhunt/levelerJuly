@@ -37,10 +37,10 @@ function sendData(data) {
     });
 
     XHR.addEventListener('error', function(event){
-        alert('Oops! Something goe wrong.');
+        alert('Oops! Something goes wrong.');
     });
 
-    XHR.open('POST', 'https://example.com/cors.php');
+    XHR.open('POST', '/');
     XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
 //this should send the data
