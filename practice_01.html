@@ -13,6 +13,8 @@
     //put the form here
     //but understand what each part does
     </form>
+
+    <div class="displayer"></div>
     
 </body>
 
@@ -23,7 +25,7 @@ function sendData(data) {
     var XHR = new XMLHttpRequest();
     var urlEncodedData = "";
     var urlEncodedDataPairs = [];
-    var name;
+    var name = "bob";
 
     //This turns the data object into an array of URL-encoded key/value pairs
     for(name in data){
