@@ -6,13 +6,13 @@
 </head>
 <body>
 
-    <button type="button" onclick ="sendData({test:'ok'})">Click here</button>
 
 
     <form action="/">
         <input type = "text"></input>
    
     </form>
+    <button type="button" onclick ="sendData({'test':'ok'})">Click here</button>
 
     <div class="displayer"></div>
     
@@ -36,6 +36,7 @@ function sendData(data) {
     urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
     XHR.addEventListener('load', function(event) {
         alert('It worked! Data was sent');
+        console.log(name);
     });
 
     XHR.addEventListener('error', function(event){
