@@ -7,33 +7,52 @@
     <title>Document</title>
 </head>
 <body>
-
-    <form action="/practice_02.html" onsubmit="return false">
         <h1>Welcome to Tweeter</h1>
-        <form id="phil-form"></form>
-        <input id="myName">
-
-        <button type ="submit">Send</button>
-
-        
-
+    <form id="myForm">
+        <input id="myName" name="name" value="John">
+        <input type="submit" value="Send me!">
     </form>
     <div class="tweets"><h3>Tweet one</h3></div>
 </body>
 
 <script>
-    let tweet = "Second tweet isss "
-document.querySelector('.tweets').innerHTML = tweet;
+    //let tweet = "Second tweet isss "
+//document.querySelector('.tweets').innerHTML = tweet;
+console.log("started");
+window.addEventListener("load", function () {
+    
+    function sendData() {
+        console.log('here');
+        var XHR = new XMLHttpRequest();
+        //this will bind the FormData object and the form element
+        var FD = new FormData(form);
+        XHR.addEventListener("load", function(event){
+            alert(event.target.responseText);
+        });
 
-function sendTheData(someData){
-    var XHR = new XMLHttpRequest;
-    var FD = new FormData;
+        XHR.addEventListener("error", function(event){
+            alert('Oops! Something went wrong');
+        });
 
-}
+        XHR.onreadystatechange = function() {
+            if(XHR.readyState == XMLHttpRequest.DONE) {
+                console.log(XHR.responseText);
+            }
+        }
 
+        XHR.open("POST", "/index.php");
+        XHR.send(FD);
 
+    }
 
+    var form = document.getElementById("myForm");
 
+    form.addEventListener("submit", function(event){
+    event.preventDefault();
+
+    sendData();
+});
+});
 
 </script>
 </html>
