@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <form action="POST">
+    <form action="/practice_02.html" onsubmit="return false">
         <h1>Welcome to Tweeter</h1>
         <input type="text">
 
@@ -21,8 +21,17 @@
 </body>
 
 <script>
-    let tweet = "Second tweet is "
+    let tweet = "Second tweet isss "
 document.querySelector('.tweets').innerHTML = tweet;
+
+function sendTheData(someData){
+    var XHR = new XMLHttpRequest;
+    var FD = new FormData;
+
+}
+
+
+
 
 
 </script>
