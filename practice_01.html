@@ -35,8 +35,8 @@ function sendData(data) {
 
     urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
     XHR.addEventListener('load', function(event) {
-        alert('It worked! Data was sent');
-        console.log(name);
+        //alert('It worked! Data was sent');
+        console.log("It is working");
     });
 
     XHR.addEventListener('error', function(event){
@@ -48,6 +48,10 @@ function sendData(data) {
 
 //this should send the data
     XHR.send(urlEncodedData);
+    console.log("here");
+    console.log(data);
 }
+
+
 </script>
 </html>
