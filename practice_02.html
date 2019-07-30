@@ -24,6 +24,7 @@ window.addEventListener("load", function () {
     function sendData() {
         console.log('here');
         var XHR = new XMLHttpRequest();
+        XHR.responseType = 'text';
         //this will bind the FormData object and the form element
         var FD = new FormData(form);
         XHR.addEventListener("load", function(event){
@@ -41,11 +42,14 @@ window.addEventListener("load", function () {
             }
         }
 
-        XHR.open("POST", "/index.php");
+         XHR.open("POST", "/index.php", true);
         let greetings = XMLHttpRequest.responseText;
+        console.log("The response is " + greetings);
+
+
         XHR.send(FD);
         
-        console.log("The response is " + greetings);
+        
 
     }
 
