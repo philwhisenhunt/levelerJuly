@@ -9,7 +9,7 @@
 <body>
         <h1>Welcome to Tweeter</h1>
     <form id="myForm">
-        <input id="myName" name="name" value="John">
+        <input id="myName" name="name" value="">
         <input type="submit" value="Send me!">
     </form>
     <div class="tweets"><h3>Tweet one</h3></div>
@@ -27,7 +27,7 @@ window.addEventListener("load", function () {
         //this will bind the FormData object and the form element
         var FD = new FormData(form);
         XHR.addEventListener("load", function(event){
-            alert(event.target.responseText);
+            //alert(event.target.responseText);
         });
 
         XHR.addEventListener("error", function(event){
@@ -36,12 +36,16 @@ window.addEventListener("load", function () {
 
         XHR.onreadystatechange = function() {
             if(XHR.readyState == XMLHttpRequest.DONE) {
-                console.log(XHR.responseText);
+                console.log("The response is " + XHR.responseText);
+                //console.log("nothing");
             }
         }
 
         XHR.open("POST", "/index.php");
+        let greetings = XMLHttpRequest.responseText;
         XHR.send(FD);
+        
+        console.log("The response is " + greetings);
 
     }
 

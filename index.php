@@ -5,9 +5,11 @@
 
 
 $received = file_get_contents('php://input');
-echo $received;
-die();
+// echo $received;
+// die();
 $converted = json_decode($received);
+echo $converted;
+die();
 //print_r($converted);
 //var_dump($) 
 header('Content-Type: application/json');
