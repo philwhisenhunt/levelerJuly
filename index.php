@@ -3,8 +3,8 @@
 //api endpoint
 //receive JSON object
 
-echo json_encode(42);
-die();
+// echo json_encode(42);
+// die();
 $received = file_get_contents('php://input');
 $received = json_decode($received);
 $received = json_encode($received);
