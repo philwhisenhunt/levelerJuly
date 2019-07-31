@@ -3,11 +3,12 @@
 //api endpoint
 //receive JSON object
 
-
+echo json_encode(42);
+die();
 $received = file_get_contents('php://input');
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 
-echo $received;
+echo json_encode($received);
 die();
 $converted = json_decode($received);
 echo "hello" + $converted;
