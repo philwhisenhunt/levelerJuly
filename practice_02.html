@@ -12,7 +12,7 @@
         <input id="myName" name="name" value="">
         <input type="submit" value="Send me!">
     </form>
-    <div class="tweets"><h3>Tweet one</h3></div>
+    <div id="tweets"><h3>Tweet one</h3></div>
 </body>
 
 <script>
@@ -37,15 +37,23 @@ window.addEventListener("load", function () {
 
         XHR.onreadystatechange = function() {
             if(XHR.readyState == XMLHttpRequest.DONE) {
-                console.log("The response is " + XHR.responseText);
+               // console.log("The response is " + XHR.responseText);
+
+                //let greetings = XMLHttpRequest.responseText;
+                let greetings = XHR.responseText;
+
+                console.log("The response is " + greetings);
+                let chunk = document.querySelector('#tweets');
+                chunk.textContent = greetings;
                 //console.log("nothing");
             }
         }
 
          XHR.open("POST", "/index.php", true);
-        let greetings = XMLHttpRequest.responseText;
-        console.log("The response is " + greetings);
-
+        // let greetings = XMLHttpRequest.responseText;
+        // console.log("The response is " + greetings);
+        // let chunk = document.querySelector('.tweets');
+        // chunk.textContent = greetings;
 
         XHR.send(FD);
         

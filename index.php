@@ -6,6 +6,10 @@
 echo json_encode(42);
 die();
 $received = file_get_contents('php://input');
+$received = json_decode($received);
+$received = json_encode($received);
+echo $received;
+die();
 //header('Content-Type: application/json');
 
 echo json_encode($received);
