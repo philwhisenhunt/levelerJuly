@@ -25,6 +25,10 @@ window.addEventListener("load", function () {
         console.log('here');
         var XHR = new XMLHttpRequest();
         XHR.responseType = 'text';
+
+        // var type = XMLHttpRequest.responseType;
+        //  XMLHttpRequest.responseType = type;
+       
         //this will bind the FormData object and the form element
         var FD = new FormData(form);
         XHR.addEventListener("load", function(event){
