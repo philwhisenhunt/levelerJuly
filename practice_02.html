@@ -16,8 +16,7 @@
 </body>
 
 <script>
-    //let tweet = "Second tweet isss "
-//document.querySelector('.tweets').innerHTML = tweet;
+    
 console.log("started");
 window.addEventListener("load", function () {
     
@@ -30,7 +29,12 @@ window.addEventListener("load", function () {
         //  XMLHttpRequest.responseType = type;
        
         //this will bind the FormData object and the form element
-        var FD = new FormData(form);
+        var FD = new FormData("myForm");
+       // var answer = FD.get(name);
+        //console.log(answer);
+        // FD.append('usertext', 'useranswer');
+        // console.log(FD);
+        
         XHR.addEventListener("load", function(event){
             //alert(event.target.responseText);
         });
@@ -41,23 +45,18 @@ window.addEventListener("load", function () {
 
         XHR.onreadystatechange = function() {
             if(XHR.readyState == XMLHttpRequest.DONE) {
-               // console.log("The response is " + XHR.responseText);
-
-                //let greetings = XMLHttpRequest.responseText;
+              
                 let greetings = XHR.responseText;
 
                 console.log("The response is " + greetings);
                 let chunk = document.querySelector('#tweets');
                 chunk.textContent = greetings;
-                //console.log("nothing");
+                
             }
         }
 
          XHR.open("POST", "/index.php", true);
-        // let greetings = XMLHttpRequest.responseText;
-        // console.log("The response is " + greetings);
-        // let chunk = document.querySelector('.tweets');
-        // chunk.textContent = greetings;
+        
 
         XHR.send(FD);
         
@@ -66,7 +65,7 @@ window.addEventListener("load", function () {
     }
 
     var form = document.getElementById("myForm");
-
+  
     form.addEventListener("submit", function(event){
     event.preventDefault();
 
