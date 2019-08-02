@@ -23,14 +23,23 @@ window.addEventListener("load", function () {
     function sendData() {
         console.log('here');
         var XHR = new XMLHttpRequest();
-        XHR.responseType = 'text';
+        var answer = XHR.response;
+        console.log("Answer is " + answer); 
 
         // var type = XMLHttpRequest.responseType;
         //  XMLHttpRequest.responseType = type;
        
         //this will bind the FormData object and the form element
-        var FD = new FormData("myForm");
-       // var answer = FD.get(name);
+        var FD = new FormData(form);
+
+        var object = {};
+        FD.forEach(function(value, key){
+        object[key] = value;
+        });
+        var json = JSON.stringify(object);
+
+        console.log(json);
+      // var answer = FD.get(name);
         //console.log(answer);
         // FD.append('usertext', 'useranswer');
         // console.log(FD);
