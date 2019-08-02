@@ -4,10 +4,10 @@ header('Content-Type: application/json');
 $received = file_get_contents('php://input');
 $received = json_decode($received);
 
-
-
-$received = json_encode($received);
-echo $received;
+$piece = $received->tweet;
+echo $piece;
+// $sendOff = json_encode($piece);
+// echo $sendOff;
 /*
 //$received = json_decode($received);
 //$received = json_encode($received);
